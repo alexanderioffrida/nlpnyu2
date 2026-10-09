@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.DS_STORE
+
+output/
+
+data/all-OANC.txt
