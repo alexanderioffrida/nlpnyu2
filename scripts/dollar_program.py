@@ -92,7 +92,7 @@ DOLLAR_REGEX = (
 DOLLAR_RE = re.compile(DOLLAR_REGEX, re.IGNORECASE)
 
 def find_dollars(text):
-    "yield each $ amount in text, ws normalized"
+    """yield each $ amount in text, ws normalized"""
     for m in DOLLAR_RE.finditer(text):
         yield " ".join(m.group(0).split())
 
@@ -101,7 +101,7 @@ def main(argv):
         sys.exit("usage: python3 dollar_program.py INPUT.txt [OUTPUT.txt]")
     in_path = argv[1]
     out_path = argv[2] if len(argv) > 2 else "output/dollar_output.txt"
-    os.makedirs("output", exist_ok=True)
+    os.makedirs(os.path.dirname(out_path) or ".", exist_ok=True)
     with open(in_path, encoding="utf-8", errors="replace") as f:
         text = f.read()
     matches = list(find_dollars(text))
