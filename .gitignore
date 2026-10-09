@@ -3,5 +3,4 @@ __pycache__/
 .DS_STORE
 
 output/
-
-data/all-OANC.txt
+data/
